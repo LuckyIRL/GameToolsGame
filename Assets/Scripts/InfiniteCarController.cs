@@ -25,13 +25,12 @@ public class InfiniteCarController : MonoBehaviour
         playerInput.actions["MoveLeft"].ReadValue<float>();
         playerInput.actions["MoveRight"].ReadValue<float>();
         remainingJumps  = 0;
-
+        jumpIcon.SetActive(false);
     }
 
     private void OnJumpPerformed(InputAction.CallbackContext context)
     {
         Jump();
-        jumpIcon.SetActive(false);
     }
 
     private void Update()

@@ -5762,13 +5762,13 @@ MonoBehaviour:
   levelChunkData:
   - {fileID: 3852332864192782754, guid: 7c84f02b3bd623846acee52b8dfb43b5, type: 3}
   - {fileID: 2457710819440421438, guid: c8e4a69e5fc05f54dba84c3c85d3a2d1, type: 3}
-  - {fileID: 8992551723962407006, guid: db9b1d7e3c286e6428f852785b8971f7, type: 3}
+  - {fileID: 3307847231948564239, guid: db9b1d7e3c286e6428f852785b8971f7, type: 3}
   - {fileID: 4350109611879193065, guid: a5f3a246af7b5fa46bdb2d705cd30aec, type: 3}
   - {fileID: 154304953565710511, guid: fda9ee3286ac74d4db9b990ae040fe2b, type: 3}
   firstChunk: {fileID: 2457710819440421438, guid: c8e4a69e5fc05f54dba84c3c85d3a2d1,
     type: 3}
   spawnOrigin: {x: 0, y: 0, z: 0}
-  chunksToSpawn: 7
+  chunksToSpawn: 10
 --- !u!4 &1872600338
 Transform:
   m_ObjectHideFlags: 0

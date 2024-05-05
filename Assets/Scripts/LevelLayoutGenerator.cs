@@ -13,6 +13,7 @@ public class LevelLayoutGenerator : MonoBehaviour
     private Vector3 endChunkSpawnPosition;
     public int endTokenCount = 0;
     public int chunksToSpawn = 10;
+    FloatingOrigin floatingOrigin;
 
     void OnEnable()
     {
@@ -49,6 +50,10 @@ public class LevelLayoutGenerator : MonoBehaviour
         LevelChunkData.Direction nextRequiredDirection = LevelChunkData.Direction.North;
         switch (previousChunk.exitDirection)
         {
+            case LevelChunkData.Direction.End:
+                nextRequiredDirection = LevelChunkData.Direction.End;
+                spawnPosition = spawnPosition + new Vector3(0f, 0, previousChunk.chunkSize.y);
+                break;
             case LevelChunkData.Direction.North:
                 nextRequiredDirection = LevelChunkData.Direction.South;
                 spawnPosition = spawnPosition + new Vector3(0f, 0, previousChunk.chunkSize.y);
@@ -64,9 +69,6 @@ public class LevelLayoutGenerator : MonoBehaviour
             case LevelChunkData.Direction.West:
                 nextRequiredDirection = LevelChunkData.Direction.East;
                 spawnPosition = spawnPosition + new Vector3(-previousChunk.chunkSize.x, 0, 0);
-                break;
-            case LevelChunkData.Direction.End:
-                nextRequiredDirection = LevelChunkData.Direction.End;
                 break;
             default:
                 break;
@@ -105,5 +107,17 @@ public class LevelLayoutGenerator : MonoBehaviour
     public void SetEndChunkSpawnPosition(Vector3 position)
     {
         endChunkSpawnPosition = position;
+    }
+
+    // Method to set the spawn position
+    public void SetSpawnPosition(Vector3 position)
+    {
+        spawnPosition = position;
+    }
+
+    // Method to set the spawn origin
+    public void SetSpawnOrigin(Vector3 origin)
+    {
+        spawnOrigin = origin;
     }
 }

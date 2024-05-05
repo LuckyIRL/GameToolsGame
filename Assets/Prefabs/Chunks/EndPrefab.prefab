@@ -111,6 +111,7 @@ MonoBehaviour:
   - {fileID: 5022105650804097553}
   entryDirection: 2
   exitDirection: 4
+  exitExitDirection: 4
   isEndChunk: 1
   endTokenCount: 0
   isStartChunk: 0

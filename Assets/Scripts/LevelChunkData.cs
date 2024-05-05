@@ -15,7 +15,6 @@ public class LevelChunkData : MonoBehaviour
     public GameObject[] levelChunks;
     public Direction entryDirection;
     public Direction exitDirection;
-    public Direction exitExitDirection;
 
     public bool isEndChunk = false;
     public int endTokenCount = 0;

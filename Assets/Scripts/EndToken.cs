@@ -12,35 +12,26 @@ public class EndToken : MonoBehaviour
     public GameObject endChunkPrefab; // Reference to the EndPrefab GameObject
     public int requiredEndTokenCount = 10; // Number of EndTokens required to spawn the EndPrefab
 
+    public GameManager gameManager;
+
     private void OnTriggerEnter(Collider other)
     {
+        // Check if the player has collided with the EndToken
         if (other.CompareTag("Player"))
         {
             // Increment the end token count
-            levelLayoutGenerator.endTokenCount++;
+            gameManager.endTokenCount++;
 
             // Update the end token count text
-            endTokenCountText.text = levelLayoutGenerator.endTokenCount.ToString();
+            endTokenCountText.text = gameManager.endTokenCount.ToString();
 
-            // Play the collect effect and sound
-            if (collectEffect != null)
-            {
-                Instantiate(collectEffect, transform.position, Quaternion.identity);
-            }
+            // Play the collect effect
+            Instantiate(collectEffect, transform.position, Quaternion.identity);
 
-            if (collectSound != null)
-            {
-                AudioSource.PlayClipAtPoint(collectSound, transform.position);
-            }
+            // Play the collect sound
+            AudioSource.PlayClipAtPoint(collectSound, transform.position);
 
-            // Check if the required number of EndTokens has been collected
-            if (levelLayoutGenerator.endTokenCount >= requiredEndTokenCount)
-            {
-                // Spawn the EndPrefab at the appropriate position
-                levelLayoutGenerator.SpawnEndPrefab(endChunkPrefab);
-            }
-
-            // Destroy the end token
+            // Destroy the EndToken
             Destroy(gameObject);
         }
     }

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,9 +10,15 @@ public class LevelLayoutGenerator : MonoBehaviour
     public Vector3 spawnOrigin;
     private Vector3 spawnPosition;
     private Vector3 endChunkSpawnPosition;
-    public int endTokenCount = 0;
     public int chunksToSpawn = 10;
     FloatingOrigin floatingOrigin;
+    GameManager gameManager;
+
+    private void Awake()
+    {
+        floatingOrigin = FindObjectOfType<FloatingOrigin>();
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     void OnEnable()
     {
@@ -24,6 +29,8 @@ public class LevelLayoutGenerator : MonoBehaviour
     {
         TriggerExit.OnChunkExited -= PickAndSpawnChunk;
     }
+
+
 
     private void Update()
     {
@@ -50,11 +57,12 @@ public class LevelLayoutGenerator : MonoBehaviour
         LevelChunkData.Direction nextRequiredDirection = LevelChunkData.Direction.North;
         switch (previousChunk.exitDirection)
         {
-            case LevelChunkData.Direction.End:
-                nextRequiredDirection = LevelChunkData.Direction.End;
-                spawnPosition = spawnPosition + new Vector3(0f, 0, previousChunk.chunkSize.y);
-                break;
             case LevelChunkData.Direction.North:
+                if (previousChunk.isEndChunk)
+                {
+                    nextRequiredDirection = LevelChunkData.Direction.End;
+                    break;
+                }
                 nextRequiredDirection = LevelChunkData.Direction.South;
                 spawnPosition = spawnPosition + new Vector3(0f, 0, previousChunk.chunkSize.y);
                 break;
@@ -69,6 +77,10 @@ public class LevelLayoutGenerator : MonoBehaviour
             case LevelChunkData.Direction.West:
                 nextRequiredDirection = LevelChunkData.Direction.East;
                 spawnPosition = spawnPosition + new Vector3(-previousChunk.chunkSize.x, 0, 0);
+                break;
+            case LevelChunkData.Direction.End:
+                nextRequiredDirection = LevelChunkData.Direction.End;
+                endChunkSpawnPosition = spawnPosition + new Vector3(0f, 0, previousChunk.chunkSize.y);
                 break;
             default:
                 break;
@@ -100,24 +112,8 @@ public class LevelLayoutGenerator : MonoBehaviour
     public void SpawnEndPrefab(GameObject endPrefab)
     {
         // Spawn the end chunk at the end of the already spawned prefabs
-        Instantiate(endPrefab, endChunkSpawnPosition + spawnOrigin, Quaternion.identity);
+        Instantiate(endPrefab, spawnPosition + spawnOrigin, Quaternion.identity);
     }
 
-    // Method to set the end chunk spawn position
-    public void SetEndChunkSpawnPosition(Vector3 position)
-    {
-        endChunkSpawnPosition = position;
-    }
-
-    // Method to set the spawn position
-    public void SetSpawnPosition(Vector3 position)
-    {
-        spawnPosition = position;
-    }
-
-    // Method to set the spawn origin
-    public void SetSpawnOrigin(Vector3 origin)
-    {
-        spawnOrigin = origin;
-    }
+    // 
 }

@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelLayoutGenerator : MonoBehaviour
 {
     public LevelChunkData[] levelChunkData;
     public LevelChunkData firstChunk;
-
+    public LevelChunkData endChunk; // Changed from EndChunk to endChunk for consistency
     private LevelChunkData previousChunk;
-
     public Vector3 spawnOrigin;
-
     private Vector3 spawnPosition;
+    private Vector3 endChunkSpawnPosition;
+    public int endTokenCount = 0;
     public int chunksToSpawn = 10;
 
     void OnEnable()
@@ -36,22 +35,18 @@ public class LevelLayoutGenerator : MonoBehaviour
     private void Start()
     {
         previousChunk = firstChunk;
-
+        endChunkSpawnPosition = spawnOrigin;
         for (int i = 0; i < chunksToSpawn; i++)
         {
             PickAndSpawnChunk();
         }
     }
 
-    LevelChunkData PickNextChunk() 
+    LevelChunkData PickNextChunk()
     {
-        // List of allowed chunks and the next chunk to spawn
         List<LevelChunkData> allowedChunkList = new List<LevelChunkData>();
         LevelChunkData nextChunk = null;
-
         LevelChunkData.Direction nextRequiredDirection = LevelChunkData.Direction.North;
-
-        // Set the spawn position and the required direction for the next chunk
         switch (previousChunk.exitDirection)
         {
             case LevelChunkData.Direction.North:
@@ -70,11 +65,12 @@ public class LevelLayoutGenerator : MonoBehaviour
                 nextRequiredDirection = LevelChunkData.Direction.East;
                 spawnPosition = spawnPosition + new Vector3(-previousChunk.chunkSize.x, 0, 0);
                 break;
+            case LevelChunkData.Direction.End:
+                nextRequiredDirection = LevelChunkData.Direction.End;
+                break;
             default:
                 break;
         }
-
-        // Add all chunks that have the required direction to the allowed chunk list
         for (int i = 0; i < levelChunkData.Length; i++)
         {
             if (levelChunkData[i].entryDirection == nextRequiredDirection)
@@ -82,26 +78,32 @@ public class LevelLayoutGenerator : MonoBehaviour
                 allowedChunkList.Add(levelChunkData[i]);
             }
         }
-
         nextChunk = allowedChunkList[Random.Range(0, allowedChunkList.Count)];
-
         return nextChunk;
     }
 
-    // Pick a random chunk from the list of allowed chunks and spawn it
     void PickAndSpawnChunk()
     {
         LevelChunkData chunkToSpawn = PickNextChunk();
-
         GameObject objectFromChunk = chunkToSpawn.levelChunks[Random.Range(0, chunkToSpawn.levelChunks.Length)];
         previousChunk = chunkToSpawn;
         Instantiate(objectFromChunk, spawnPosition + spawnOrigin, Quaternion.identity);
-
     }
 
-    // Update the spawn origin
     public void UpdateSpawnOrigin(Vector3 originDelta)
     {
         spawnOrigin = spawnOrigin + originDelta;
+    }
+
+    public void SpawnEndPrefab(GameObject endPrefab)
+    {
+        // Spawn the end chunk at the end of the already spawned prefabs
+        Instantiate(endPrefab, endChunkSpawnPosition + spawnOrigin, Quaternion.identity);
+    }
+
+    // Method to set the end chunk spawn position
+    public void SetEndChunkSpawnPosition(Vector3 position)
+    {
+        endChunkSpawnPosition = position;
     }
 }

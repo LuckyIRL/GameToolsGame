@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5181948198482642922}
   - component: {fileID: 3005010594484632734}
   - component: {fileID: 7978145069828205889}
-  - component: {fileID: 8334067800527450661}
   m_Layer: 0
   m_Name: EastToWest
   m_TagString: Untagged
@@ -45,7 +44,7 @@ Terrain:
   m_GameObject: {fileID: 2345493852313595568}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 1b3ac8a9d8d1c6b488f37e89d727b0db, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -95,23 +94,6 @@ TerrainCollider:
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: 1b3ac8a9d8d1c6b488f37e89d727b0db, type: 2}
   m_EnableTreeColliders: 1
---- !u!114 &8334067800527450661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2345493852313595568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182b6827e1ebab84fa1aab2d456e45e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chunkSize: {x: 200, y: 200}
-  levelChunks:
-  - {fileID: 2345493852313595568}
-  entryDirection: 1
-  exitDirection: 3
 --- !u!1001 &2162988529645981988
 PrefabInstance:
   m_ObjectHideFlags: 0

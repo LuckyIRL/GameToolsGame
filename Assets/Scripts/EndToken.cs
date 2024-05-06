@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -33,6 +34,13 @@ public class EndToken : MonoBehaviour
 
             // Destroy the EndToken
             Destroy(gameObject);
+            // wait for 5 second
         }
     }
+
+    private IEnumerator WaitForSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
+
 }

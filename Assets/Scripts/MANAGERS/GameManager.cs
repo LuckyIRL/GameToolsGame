@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public bool isPaused = false; // Flag to track if the game is paused
     public int endTokenCount = 0; // Number of end tokens collected by the player
     public bool hasAllEndTokens = false; // Flag to track if the player has collected all end tokens
+    public int endTokenCountNeeded = 1; // Number of end tokens needed to spawn the end chunk
+    public bool endChunkSpawned = false; // Flag to track if the end chunk has been spawned
 
     // Awake is always called before any Start functions
     public void Awake()
@@ -30,14 +32,24 @@ public class GameManager : MonoBehaviour
         {
             // If not, set instance to this
             instance = this;
+            levelLayoutGenerator = FindObjectOfType<LevelLayoutGenerator>();
+            // Check if levelLayoutGenerator is null and handle it if needed
         }
     }
 
-    // Start is called before the first frame update
-    public void Start()
+    public void Update()
     {
-        // Initialize the game
-        // InitGame();
+        // Check if the player has collected all end tokens
+        CheckEndTokens();
+
+        // Check if all end tokens have been collected and the end chunk hasn't been spawned yet
+        if (hasAllEndTokens && !endChunkSpawned)
+        {
+            // Spawn the end chunk
+            levelLayoutGenerator.SpawnEndChunk();
+            // Set the flag to true
+            endChunkSpawned = true;
+        }
     }
 
     // Initialize the game
@@ -78,12 +90,10 @@ public class GameManager : MonoBehaviour
     public void CheckEndTokens()
     {
         // Check if the player has collected all end tokens
-        if (endTokenCount >= 1)
+        if (endTokenCount >= endTokenCountNeeded)
         {
+            // Set the flag to true
             hasAllEndTokens = true;
-
-            // Spawn the end chunk
-            levelLayoutGenerator.SpawnEndPrefab(gameObject);
         }
     }
     

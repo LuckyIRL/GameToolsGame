@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "LevelChunkData")]
-public class LevelChunkData : MonoBehaviour
+public class LevelChunkData : ScriptableObject
 {
-    public enum Direction 
+    public enum Direction
     {
-        North, East, South, West, End
+        North, East, South, West, None
     }
+
+
 
     public Vector2 chunkSize = new Vector2(10f, 10f);
 

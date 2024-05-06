@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1140684193402532369}
   - component: {fileID: 3465899351502964880}
   - component: {fileID: 8275892969116888382}
-  - component: {fileID: 3852332864192782754}
   m_Layer: 0
   m_Name: SouthToEast 1
   m_TagString: Untagged
@@ -214,23 +213,6 @@ TerrainCollider:
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: b6d78f6378f7ee04bbc9570b158f1323, type: 2}
   m_EnableTreeColliders: 1
---- !u!114 &3852332864192782754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232192245290281211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182b6827e1ebab84fa1aab2d456e45e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chunkSize: {x: 200, y: 200}
-  levelChunks:
-  - {fileID: 232192245290281211}
-  entryDirection: 2
-  exitDirection: 1
 --- !u!1001 &19176440869909113
 PrefabInstance:
   m_ObjectHideFlags: 0

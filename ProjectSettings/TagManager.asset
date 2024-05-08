@@ -9,6 +9,8 @@ TagManager:
   - Curve
   - Lethal
   - SpeedBoost
+  - EndTokenCount
+  - NumberOfJumps
   layers:
   - Default
   - TransparentFX

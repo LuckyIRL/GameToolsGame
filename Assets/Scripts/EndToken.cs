@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class EndToken : MonoBehaviour
 {
-    public LevelLayoutGenerator levelLayoutGenerator; // Reference to the LevelLayoutGenerator script
-    public TextMeshProUGUI endTokenCountText; // Reference to the TextMeshPro UI element
+    private LevelLayoutGenerator levelLayoutGenerator; // Reference to the LevelLayoutGenerator script
+    private TextMeshProUGUI endTokenCountText; // Reference to the TextMeshPro UI element
 
     public GameObject collectEffect; // Reference to the collect effect GameObject
     public AudioClip collectSound; // Reference to the collect sound AudioClip
 
-    public GameObject endChunkPrefab; // Reference to the EndPrefab GameObject
-    public int requiredEndTokenCount = 10; // Number of EndTokens required to spawn the EndPrefab
+    private GameManager gameManager;
 
-    public GameManager gameManager;
+    private void Start()
+    {
+        // Find the LevelLayoutGenerator script in the scene
+        levelLayoutGenerator = FindObjectOfType<LevelLayoutGenerator>();
+
+        // Find the TextMeshPro UI element with the tag "EndTokenCount"
+        endTokenCountText = GameObject.FindGameObjectWithTag("EndTokenCount").GetComponent<TextMeshProUGUI>();
+
+        // Find the GameManager script in the scene
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {

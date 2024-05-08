@@ -28,6 +28,17 @@ public class PlayerHealth : MonoBehaviour
         UpdateUI();
     }
 
+    public void AddHealth()
+    {
+        // Increase the player's hearts
+        currentHearts++;
+
+        // Clamp the current hearts to the maximum hearts
+        currentHearts = Mathf.Clamp(currentHearts, 0, maxHearts);
+
+        UpdateUI();
+    }
+
     // Restart the level
     private void RestartLevel()
     {

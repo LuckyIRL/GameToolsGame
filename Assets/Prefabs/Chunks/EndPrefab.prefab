@@ -128,6 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be53a74a0dc885746a378ff99639624f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endGameSound1: {fileID: 8300000, guid: 6879425ce9171ac4a927d05423bcbe12, type: 3}
+  endGameSound2: {fileID: 8300000, guid: 9233ef183ab26c544b0718345f967107, type: 3}
 --- !u!1001 &6137082191068960074
 PrefabInstance:
   m_ObjectHideFlags: 0

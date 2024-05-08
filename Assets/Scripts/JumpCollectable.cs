@@ -1,35 +1,47 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class JumpCollectible : MonoBehaviour
 {
-    private int remainingJumps; // Remaining number of jumps the car can perform
-    public GameObject jumpIcon; // Reference to the jump icon GameObject
-    public InfiniteCarController carController; // Reference to the InfiniteCarController script
+    private InfiniteCarController carController; // Reference to the InfiniteCarController script
     public GameObject spawnEffect;
     public AudioClip jumpCollectable;
+    private TextMeshProUGUI jumpCountText; // Reference to the TextMeshPro UI element
+    private GameManager gameManager;
 
     private void Start()
     {
         carController = FindObjectOfType<InfiniteCarController>(); // Find the InfiniteCarController script in the scene
+                                                                   
+        jumpCountText = GameObject.FindGameObjectWithTag("NumberOfJumps").GetComponent<TextMeshProUGUI>(); // Find the TextMeshPro UI element with the tag "NumberOfJumps"
+
+        gameManager = FindObjectOfType<GameManager>(); // Find the GameManager script in the scene
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) // Check if the player has collided with the jump collectible
         {
-            remainingJumps++; // Increment the remaining jumps
-            carController.remainingJumps++; // Increment the remaining jumps in the InfiniteCarController script
-            gameObject.SetActive(false); // Deactivate the jump collectible
-            Instantiate(spawnEffect, transform.position, Quaternion.identity); // Instantiate the spawn effect
-            AudioSource.PlayClipAtPoint(jumpCollectable, transform.position); // Play the jump collectable sound effect
-            jumpIcon.SetActive(true); // Activate the jump icon
+            // Increment the remaining jumps in the InfiniteCarController script
+            carController.remainingJumps++;
 
-            Debug.Log("Jump Collected! Remaining Jumps: " + remainingJumps);
+            // Increment the end token count
+            gameManager.IncrementJumpCount();
 
-            Destroy(gameObject); // Destroy the jump collectible object
+            // Update the end token count text
+            jumpCountText.text = gameManager.remainingJumps.ToString();
+
+            // Instantiate the spawn effect
+            Instantiate(spawnEffect, transform.position, Quaternion.identity);
+
+            // Play the jump collectable sound effect
+            AudioSource.PlayClipAtPoint(jumpCollectable, transform.position);
+
+
+
+            // Destroy the jump collectible object
+            Destroy(gameObject);
         }
     }
-
-
 }

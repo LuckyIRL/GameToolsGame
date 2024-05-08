@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1cf84d0da5b34dd4abe98d5cc37f80ee, type: 2}
+  - {fileID: 2100000, guid: 9a480914849cc954090a38986f3a61ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,9 +115,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2523009049097897589}
   - component: {fileID: 7241831054134712352}
-  - component: {fileID: 3355696540432031664}
+  - component: {fileID: 2066359261901442436}
   m_Layer: 0
-  m_Name: JumpPickUp
+  m_Name: HealthPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3355696540432031664
+--- !u!114 &2066359261901442436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,11 +169,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7389074976443603097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c4a55ac87715de46880de42dcae3ccb, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d033ed2511159e46b3ac0d99a0e9ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpIcon: {fileID: 2010685284601450565, guid: 317f0c05df3d2db43a648c9aac50ad1c,
+  collectEffect: {fileID: 8350960736181701040, guid: 5400cfab34f3ad045ad5222a0dc649e1,
     type: 3}
-  spawnEffect: {fileID: 8350960736181701040, guid: 5400cfab34f3ad045ad5222a0dc649e1,
-    type: 3}
-  jumpCollectable: {fileID: 8300000, guid: 314989060202d9848a1d3c8230c96b78, type: 3}
+  collectSound: {fileID: 8300000, guid: 3436e10bcee7a6e44a8314f7a2d24279, type: 3}

@@ -18,10 +18,6 @@ public class Hazard : MonoBehaviour
                 playerHealth.TakeDamage();
                 Debug.Log("Player hit by hazard! Hearts remaining: " + playerHealth.currentHearts);
             }
-            else
-            {
-                Debug.LogWarning("PlayerHealth component not found on the player GameObject.");
-            }
         }
     }
 }

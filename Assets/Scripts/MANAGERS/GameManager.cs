@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public bool hasAllEndTokens = false; // Flag to track if the player has collected all end tokens
     public int endTokenCountNeeded = 1; // Number of end tokens needed to spawn the end chunk
     public bool endChunkSpawned = false; // Flag to track if the end chunk has been spawned
+    public int remainingJumps = 0;
 
     // Awake is always called before any Start functions
     public void Awake()
@@ -97,6 +98,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Increment the Jump count
+    public void IncrementJumpCount()
+    {
+        // Increment the jump count
+        remainingJumps++;
+    }
+
     // End the game
     public void EndGame()
     {
@@ -106,6 +114,19 @@ public class GameManager : MonoBehaviour
         // Show the end screen or perform any other end-game actions
         SceneManager.LoadScene(2); // Load the end screen scene
     }
+
+    // add health when player collects health pickup
+    public void AddHealth()
+    {
+        // Check if the player's health is less than the maximum health
+        if (currentHealth < maxHealth)
+        {
+            // Increment the player's health
+            currentHealth++;
+        }
+    }
+
+
 
 }
 

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class InfiniteCarController : MonoBehaviour
 {
@@ -15,8 +16,9 @@ public class InfiniteCarController : MonoBehaviour
     public float jumpCooldown = 1f;
     public Rigidbody rb;
     public bool isGrounded = true;
-    [SerializeField] private GameObject jumpIcon;
-    [SerializeField] public PlayerInput playerInput;
+    [SerializeField] private TextMeshProUGUI jumpCountText;
+    [SerializeField] private PlayerInput playerInput;
+
 
     private void Start()
     {
@@ -25,7 +27,8 @@ public class InfiniteCarController : MonoBehaviour
         playerInput.actions["MoveLeft"].ReadValue<float>();
         playerInput.actions["MoveRight"].ReadValue<float>();
         remainingJumps  = 0;
-        jumpIcon.SetActive(false);
+        jumpCountText.text = remainingJumps.ToString();
+
     }
 
     private void OnJumpPerformed(InputAction.CallbackContext context)
@@ -60,30 +63,23 @@ public class InfiniteCarController : MonoBehaviour
         }
     }
 
-
-
-
-
     public void Jump()
     {
-        if (canJump && remainingJumps > 0)
+        if (canJump)
         {
-            Debug.Log("Jump called.");
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            Debug.Log("Jumped! Remaining Jumps: " + remainingJumps);
             remainingJumps--;
-            jumpIcon.SetActive(false);
+            jumpCountText.text = remainingJumps.ToString();
+            isGrounded = false;
+            canJump = false;
             StartCoroutine(JumpCooldown());
         }
     }
 
 
-
-
     private IEnumerator JumpCooldown()
     {
         yield return new WaitForSeconds(jumpCooldown);
-        remainingJumps++;
     }
 
 }

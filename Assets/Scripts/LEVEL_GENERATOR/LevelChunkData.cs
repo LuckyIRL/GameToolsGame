@@ -8,6 +8,22 @@ public class LevelChunkData : ScriptableObject
         North, East, South, West, None
     }
 
+    public Vector3 ExitDirectionToVector()
+    {
+        switch (exitDirection)
+        {
+            case Direction.North:
+                return Vector3.forward;
+            case Direction.East:
+                return Vector3.right;
+            case Direction.South:
+                return Vector3.back;
+            case Direction.West:
+                return Vector3.left;
+            default:
+                return Vector3.zero;
+        }
+    }
 
 
     public Vector2 chunkSize = new Vector2(10f, 10f);

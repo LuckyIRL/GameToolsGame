@@ -14,6 +14,7 @@ public class LevelLayoutGenerator : MonoBehaviour
     FloatingOrigin floatingOrigin;
     public GameManager gameManager;
 
+
     private void Awake()
     {
         floatingOrigin = FindObjectOfType<FloatingOrigin>();
@@ -52,6 +53,12 @@ public class LevelLayoutGenerator : MonoBehaviour
 
     LevelChunkData PickNextChunk()
     {
+        // Check if the end chunk has been spawned and all end tokens have been collected
+        if (gameManager.endChunkSpawned && gameManager.hasAllEndTokens)
+        {
+            return null; // Return null to stop further chunk spawning
+        }
+
         List<LevelChunkData> allowedChunkList = new List<LevelChunkData>();
         LevelChunkData nextChunk = null;
         LevelChunkData.Direction nextRequiredDirection = LevelChunkData.Direction.North;
@@ -84,6 +91,9 @@ public class LevelLayoutGenerator : MonoBehaviour
                 case LevelChunkData.Direction.West:
                     nextRequiredDirection = LevelChunkData.Direction.East;
                     spawnPosition = spawnPosition + new Vector3(-previousChunk.chunkSize.x, 0, 0);
+                    break;
+                case LevelChunkData.Direction.None:
+                    nextRequiredDirection = LevelChunkData.Direction.None;
                     break;
                 default:
                     break;
@@ -138,8 +148,36 @@ public class LevelLayoutGenerator : MonoBehaviour
         // Get the last spawned chunk's position
         Vector3 lastSpawnedChunkPosition = spawnPosition;
 
-        // Spawn the end chunk at the position of the last spawned chunk
-        Instantiate(endChunk.levelChunks[0], lastSpawnedChunkPosition + spawnOrigin, Quaternion.identity);
-    }
+        // Get the exit direction of the last spawned chunk
+        Vector3 exitDirection = previousChunk.ExitDirectionToVector();
 
+        // Calculate the spawn position of the End Chunk based on the exit direction of the last spawned chunk
+        Vector3 endChunkSpawnPosition = lastSpawnedChunkPosition + exitDirection * previousChunk.chunkSize.x; // Assuming chunkSize.x is the width of the chunk
+
+        // Calculate the rotation angle to align the entrance of the End Chunk with the exit direction of the last spawned chunk
+        Quaternion rotation = Quaternion.identity;
+        switch (previousChunk.exitDirection)
+        {
+            case LevelChunkData.Direction.North:
+                rotation = Quaternion.Euler(0f, 0f, 0f);
+                break;
+            case LevelChunkData.Direction.East:
+                rotation = Quaternion.Euler(0f, 90f, 0f);
+                break;
+            case LevelChunkData.Direction.South:
+                rotation = Quaternion.Euler(0f, 180f, 0f);
+                break;
+            case LevelChunkData.Direction.West:
+                rotation = Quaternion.Euler(0f, 270f, 0f);
+                break;
+            default:
+                break;
+        }
+
+        // Spawn the end chunk at the calculated position
+        GameObject objectFromChunk = endChunk.levelChunks[Random.Range(0, endChunk.levelChunks.Length)];
+        GameObject endChunkObject = Instantiate(objectFromChunk, endChunkSpawnPosition, Quaternion.identity);
+
+        endChunk = null;
+    }
 }

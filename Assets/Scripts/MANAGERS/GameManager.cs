@@ -96,7 +96,17 @@ public class GameManager : MonoBehaviour
             hasAllEndTokens = true;
         }
     }
-    
+
+    // End the game
+    public void EndGame()
+    {
+        // Set the game over flag to true
+        isGameOver = true;
+
+        // Show the end screen or perform any other end-game actions
+        SceneManager.LoadScene(2); // Load the end screen scene
+    }
+
 }
 
 

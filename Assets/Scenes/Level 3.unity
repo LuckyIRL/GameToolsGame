@@ -5529,7 +5529,7 @@ MonoBehaviour:
   remainingJumps: 0
   canJump: 0
   moveSpeed: 8
-  turnSpeed: 30
+  turnSpeed: 29.8
   jumpForce: 15000
   gravity: 20
   jumpHeight: 20
@@ -5980,7 +5980,7 @@ MonoBehaviour:
   firstChunk: {fileID: 11400000, guid: d14525df7c080aa4c98ac4b75a4cefa1, type: 2}
   endChunk: {fileID: 11400000, guid: 9355c3919255bc64896fb3b33e3192e5, type: 2}
   spawnOrigin: {x: 0, y: 0, z: 0}
-  chunksToSpawn: 10
+  chunksToSpawn: 1
   gameManager: {fileID: 3992404476921883715}
 --- !u!4 &1872600338
 Transform:

@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class JumpCollectible : MonoBehaviour
 {
@@ -13,9 +12,7 @@ public class JumpCollectible : MonoBehaviour
     private void Start()
     {
         carController = FindObjectOfType<InfiniteCarController>(); // Find the InfiniteCarController script in the scene
-                                                                   
         jumpCountText = GameObject.FindGameObjectWithTag("NumberOfJumps").GetComponent<TextMeshProUGUI>(); // Find the TextMeshPro UI element with the tag "NumberOfJumps"
-
         gameManager = FindObjectOfType<GameManager>(); // Find the GameManager script in the scene
     }
 
@@ -26,19 +23,17 @@ public class JumpCollectible : MonoBehaviour
             // Increment the remaining jumps in the InfiniteCarController script
             carController.remainingJumps++;
 
-            // Increment the end token count
+            // Increment the jump count in the GameManager
             gameManager.IncrementJumpCount();
 
-            // Update the end token count text
-            jumpCountText.text = gameManager.remainingJumps.ToString();
+            // Update the jump count text
+            jumpCountText.text = carController.remainingJumps.ToString();
 
             // Instantiate the spawn effect
             Instantiate(spawnEffect, transform.position, Quaternion.identity);
 
             // Play the jump collectable sound effect
             AudioSource.PlayClipAtPoint(jumpCollectable, transform.position);
-
-
 
             // Destroy the jump collectible object
             Destroy(gameObject);

@@ -1,8 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
-using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InfiniteCarController : MonoBehaviour
 {
@@ -19,16 +18,12 @@ public class InfiniteCarController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI jumpCountText;
     [SerializeField] private PlayerInput playerInput;
 
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerInput.actions["Jump"].performed += OnJumpPerformed;
-        playerInput.actions["MoveLeft"].ReadValue<float>();
-        playerInput.actions["MoveRight"].ReadValue<float>();
-        remainingJumps  = 0;
-        jumpCountText.text = remainingJumps.ToString();
-
+        remainingJumps = 0;
+        UpdateJumpCountText();
     }
 
     private void OnJumpPerformed(InputAction.CallbackContext context)
@@ -54,7 +49,6 @@ public class InfiniteCarController : MonoBehaviour
         transform.Rotate(Vector3.up, horizontalInput * turnSpeed * Time.deltaTime);
     }
 
-
     private void FixedUpdate()
     {
         if (!isGrounded)
@@ -67,19 +61,28 @@ public class InfiniteCarController : MonoBehaviour
     {
         if (canJump)
         {
+            Debug.Log("Jumping! Remaining Jumps: " + remainingJumps); // Add this line
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             remainingJumps--;
-            jumpCountText.text = remainingJumps.ToString();
+            UpdateJumpCountText();
             isGrounded = false;
             canJump = false;
             StartCoroutine(JumpCooldown());
         }
     }
 
-
     private IEnumerator JumpCooldown()
     {
+        Debug.Log("Jump Cooldown"); // Add this line
         yield return new WaitForSeconds(jumpCooldown);
+        remainingJumps++;
+        UpdateJumpCountText();
+        Debug.Log("Jump Cooldown Over. Remaining Jumps: " + remainingJumps); // Add this line
     }
 
+
+    private void UpdateJumpCountText()
+    {
+        jumpCountText.text = remainingJumps.ToString();
+    }
 }

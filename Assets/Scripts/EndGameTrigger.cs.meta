@@ -3,7 +3,11 @@ guid: be53a74a0dc885746a378ff99639624f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - endGameSound1: {fileID: 8300000, guid: 6879425ce9171ac4a927d05423bcbe12, type: 3}
+  - endGameSound2: {fileID: 8300000, guid: 9233ef183ab26c544b0718345f967107, type: 3}
+  - fireworksPrefab: {fileID: 1213343350366238964, guid: ba6e85cf00354724a93f12aedbade03c,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

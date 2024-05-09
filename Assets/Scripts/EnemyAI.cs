@@ -11,12 +11,19 @@ public class EnemyAI : MonoBehaviour
     public float bumpForce = 10f; // Force applied to the player upon collision
     public float destroyDelay = 10f; // Time before the enemy self-destructs after losing sight of the player
 
-    public Transform player; // Reference to the player's transform
+    private Transform player; // Reference to the player's transform
 
     private bool playerDetected = false;
     private bool isBoosting = false;
     private bool shouldDestroy = false;
     private float timeSinceLostPlayer = 0f;
+
+    void Start()
+    {
+        // Find the player GameObject using its tag
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        this.enabled = false; // Disable the script initially
+    }
 
     void Update()
     {

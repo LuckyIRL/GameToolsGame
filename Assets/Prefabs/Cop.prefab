@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 794940192333935797}
   m_Layer: 0
   m_Name: Cop
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,6 +134,7 @@ MonoBehaviour:
   boostSpeedMultiplier: 1.2
   boostCooldown: 5
   bumpForce: 10
+  destroyDelay: 10
   player: {fileID: 0}
 --- !u!1001 &7105375574626626607
 PrefabInstance:

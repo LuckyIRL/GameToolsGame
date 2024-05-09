@@ -17,6 +17,7 @@ public class InfiniteCarController : MonoBehaviour
     public bool isGrounded = true;
     [SerializeField] private TextMeshProUGUI jumpCountText;
     [SerializeField] private PlayerInput playerInput;
+    private bool canControl = true; // Flag to indicate whether the player can control the car
 
     private void Start()
     {
@@ -33,20 +34,26 @@ public class InfiniteCarController : MonoBehaviour
 
     private void Update()
     {
-        // Check if the player has collected the jump pickup and is grounded
-        if (isGrounded && remainingJumps > 0)
+        if (canControl)
         {
-            canJump = true; // Allow the player to jump
-        }
-        else
-        {
-            canJump = false; // Prevent the player from jumping
+            // Handle player control inputs only if canControl is true
+            // Implement your player control logic here
+            // Check if the player has collected the jump pickup and is grounded
+            if (isGrounded && remainingJumps > 0)
+            {
+                canJump = true; // Allow the player to jump
+            }
+            else
+            {
+                canJump = false; // Prevent the player from jumping
+            }
+
+            // Rotate the car based on the horizontal input
+            float horizontalInput = playerInput.actions["MoveRight"].ReadValue<float>() - playerInput.actions["MoveLeft"].ReadValue<float>();
+            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.up, horizontalInput * turnSpeed * Time.deltaTime);
         }
 
-        // Rotate the car based on the horizontal input
-        float horizontalInput = playerInput.actions["MoveRight"].ReadValue<float>() - playerInput.actions["MoveLeft"].ReadValue<float>();
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-        transform.Rotate(Vector3.up, horizontalInput * turnSpeed * Time.deltaTime);
     }
 
     private void FixedUpdate()
@@ -81,11 +88,14 @@ public class InfiniteCarController : MonoBehaviour
         Debug.Log("Jump Cooldown Over. Remaining Jumps: " + remainingJumps); // Add this line
     }
 
-
-
-
     private void UpdateJumpCountText()
     {
         jumpCountText.text = remainingJumps.ToString();
+    }
+
+
+    public void SetCanControl(bool value)
+    {
+        canControl = value;
     }
 }

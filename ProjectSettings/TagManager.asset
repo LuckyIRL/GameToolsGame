@@ -11,6 +11,7 @@ TagManager:
   - SpeedBoost
   - EndTokenCount
   - NumberOfJumps
+  - Enemy
   layers:
   - Default
   - TransparentFX

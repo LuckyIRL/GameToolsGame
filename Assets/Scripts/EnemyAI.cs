@@ -9,11 +9,14 @@ public class EnemyAI : MonoBehaviour
     public float boostSpeedMultiplier = 2f; // Speed multiplier when boosting
     public float boostCooldown = 5f; // Cooldown period between boosts
     public float bumpForce = 10f; // Force applied to the player upon collision
+    public float destroyDelay = 10f; // Time before the enemy self-destructs after losing sight of the player
 
     public Transform player; // Reference to the player's transform
 
     private bool playerDetected = false;
     private bool isBoosting = false;
+    private bool shouldDestroy = false;
+    private float timeSinceLostPlayer = 0f;
 
     void Update()
     {
@@ -22,15 +25,24 @@ public class EnemyAI : MonoBehaviour
         if (distanceToPlayer <= detectionRange)
         {
             playerDetected = true;
+            timeSinceLostPlayer = 0f; // Reset the timer if player is detected
         }
         else
         {
             playerDetected = false;
+            timeSinceLostPlayer += Time.deltaTime; // Increment the timer if player is not detected
+            if (timeSinceLostPlayer >= destroyDelay)
+            {
+                shouldDestroy = true; // Set flag to destroy enemy after delay
+            }
         }
 
         // If the player is detected, move towards a position behind the player
         if (playerDetected)
         {
+            // Reset the destroy timer if player is detected
+            timeSinceLostPlayer = 0f;
+
             // Check if not currently boosting and a random chance to enter boost mode
             if (!isBoosting && Random.value < 0.1f)
             {
@@ -52,6 +64,10 @@ public class EnemyAI : MonoBehaviour
             // Move at normal or boosted speed depending on the boost state
             float speed = isBoosting ? moveSpeed * boostSpeedMultiplier : moveSpeed;
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+        else if (shouldDestroy)
+        {
+            Destroy(gameObject); // Destroy the enemy if it should be destroyed
         }
     }
 

@@ -75,10 +75,13 @@ public class InfiniteCarController : MonoBehaviour
     {
         Debug.Log("Jump Cooldown"); // Add this line
         yield return new WaitForSeconds(jumpCooldown);
-        remainingJumps++;
         UpdateJumpCountText();
+        canJump = true; // Reset canJump flag
+        isGrounded = true; // Reset isGrounded flag
         Debug.Log("Jump Cooldown Over. Remaining Jumps: " + remainingJumps); // Add this line
     }
+
+
 
 
     private void UpdateJumpCountText()

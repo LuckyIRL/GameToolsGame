@@ -395,6 +395,11 @@ PrefabInstance:
       propertyPath: isStartChunk
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4588511097620832388, guid: c8e4a69e5fc05f54dba84c3c85d3a2d1,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7363859714181458795, guid: c8e4a69e5fc05f54dba84c3c85d3a2d1,
         type: 3}
       propertyPath: jumpCollectable

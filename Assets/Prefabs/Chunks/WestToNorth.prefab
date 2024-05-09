@@ -726,6 +726,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+<<<<<<< Updated upstream
   - {fileID: 7765811091526838102}
   - {fileID: 7807580865791513751}
   - {fileID: 7247692481510017428}
@@ -766,6 +767,9 @@ Transform:
   - {fileID: 5615081433835321236}
   - {fileID: 6356850358669855519}
   - {fileID: 4702824785504802123}
+=======
+  - {fileID: 242326635057140005}
+>>>>>>> Stashed changes
   - {fileID: 31153611025124095}
   - {fileID: 5735743442713102341}
   - {fileID: 2620753466287699616}
@@ -5648,7 +5652,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e635b6c1531d4899b0348244abd75df,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 3296004836284774348}
+=======
+      addedObject: {fileID: 8584366822400089632}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 0e635b6c1531d4899b0348244abd75df, type: 3}
 --- !u!1 &32683481553090963 stripped
 GameObject:
@@ -5656,7 +5664,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 915766355283903682}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &3296004836284774348
+=======
+--- !u!65 &8584366822400089632
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5671,7 +5683,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5753,7 +5769,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51c85220a97ae44ad8288e363d730d95,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 6265668922734502811}
+=======
+      addedObject: {fileID: 3219594589578632235}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 51c85220a97ae44ad8288e363d730d95, type: 3}
 --- !u!4 &1636691541236913874 stripped
 Transform:
@@ -5767,7 +5787,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1241879917309555001}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &6265668922734502811
+=======
+--- !u!65 &3219594589578632235
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5782,12 +5806,98 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 14.6091, y: 7.8779926, z: 35.506817}
   m_Center: {x: -247.87215, y: -282.42456, z: 36.261345}
+<<<<<<< Updated upstream
+=======
+--- !u!1001 &1608856717792369659
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 304635812650212246}
+    m_Modifications:
+    - target: {fileID: 1517471608354212574, guid: 439c9711de3514c4ba9beda798f186ab,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517471608354212574, guid: 439c9711de3514c4ba9beda798f186ab,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517471608354212574, guid: 439c9711de3514c4ba9beda798f186ab,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 108.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517471608354212574, guid: 439c9711de3514c4ba9beda798f186ab,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517471608354212574, guid: 439c9711de3514c4ba9beda798f186ab,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517471608354212574, guid: 439c9711de3514c4ba9beda798f186ab,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517471608354212574, guid: 439c9711de3514c4ba9beda798f186ab,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517471608354212574, guid: 439c9711de3514c4ba9beda798f186ab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517471608354212574, guid: 439c9711de3514c4ba9beda798f186ab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517471608354212574, guid: 439c9711de3514c4ba9beda798f186ab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2505295092028231994, guid: 439c9711de3514c4ba9beda798f186ab,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853347385743174987, guid: 439c9711de3514c4ba9beda798f186ab,
+        type: 3}
+      propertyPath: m_Name
+      value: SpeedCollectable (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 439c9711de3514c4ba9beda798f186ab, type: 3}
+--- !u!4 &242326635057140005 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1517471608354212574, guid: 439c9711de3514c4ba9beda798f186ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1608856717792369659}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!1001 &1697142085808916972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5873,7 +5983,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2a050cfdbc675462f9305b6387e72590,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 2972253341756346021}
+=======
+      addedObject: {fileID: 6842476392940031871}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 2a050cfdbc675462f9305b6387e72590, type: 3}
 --- !u!4 &1155116959964917255 stripped
 Transform:
@@ -5887,7 +6001,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1697142085808916972}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &2972253341756346021
+=======
+--- !u!65 &6842476392940031871
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5902,7 +6020,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5983,7 +6105,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51d826b91ac084f19b278907caa2d919,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 5802897242055836312}
+=======
+      addedObject: {fileID: 5394548915399623564}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 51d826b91ac084f19b278907caa2d919, type: 3}
 --- !u!1 &1624922374655055642 stripped
 GameObject:
@@ -5991,7 +6117,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1895324518259042891}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &5802897242055836312
+=======
+--- !u!65 &5394548915399623564
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6006,7 +6136,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6088,7 +6222,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a1d4d8b06cf54081bd345ba847a8739,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 1129341632763030357}
+=======
+      addedObject: {fileID: 2005084621330456530}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 7a1d4d8b06cf54081bd345ba847a8739, type: 3}
 --- !u!4 &2672138256468200453 stripped
 Transform:
@@ -6102,7 +6240,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2494975413034003438}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &1129341632763030357
+=======
+--- !u!65 &2005084621330456530
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6117,12 +6259,17 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 13.553898, y: 19.730806, z: 16.288881}
   m_Center: {x: -225.34218, y: -153.10971, z: 26.997362}
+<<<<<<< Updated upstream
 --- !u!1001 &2537036618716547108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6197,6 +6344,8 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2537036618716547108}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> Stashed changes
 --- !u!1001 &2581811739457671499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6272,7 +6421,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b050d3508e6874a679e0fba609b2a986,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 7274451774908987683}
+=======
+      addedObject: {fileID: 904695002321977415}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: b050d3508e6874a679e0fba609b2a986, type: 3}
 --- !u!4 &2620753466287699616 stripped
 Transform:
@@ -6286,7 +6439,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2581811739457671499}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &7274451774908987683
+=======
+--- !u!65 &904695002321977415
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6301,12 +6458,17 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 37.9174, y: 35.53417, z: 51.351032}
   m_Center: {x: -255.29832, y: -76.44554, z: 48.108894}
+<<<<<<< Updated upstream
 --- !u!1001 &2787374034841570824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6381,6 +6543,8 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2787374034841570824}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> Stashed changes
 --- !u!1001 &3419318919985499831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6752,7 +6916,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4bb7baba7a8aa409a8646f5bcbbff00e,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 6424848846450664422}
+=======
+      addedObject: {fileID: 6534767805943438659}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 4bb7baba7a8aa409a8646f5bcbbff00e, type: 3}
 --- !u!1 &4866345716347670502 stripped
 GameObject:
@@ -6760,7 +6928,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5713329000188261047}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &6424848846450664422
+=======
+--- !u!65 &6534767805943438659
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6775,7 +6947,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6936,7 +7112,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b58edf496d32942b3a35760bab6c4b5e,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 4775858292622138883}
+=======
+      addedObject: {fileID: 2798646587075421490}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: b58edf496d32942b3a35760bab6c4b5e, type: 3}
 --- !u!4 &6040530448792623641 stripped
 Transform:
@@ -6950,7 +7130,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6079576978724912626}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &4775858292622138883
+=======
+--- !u!65 &2798646587075421490
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6965,12 +7149,17 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 15.415497, y: 11.230209, z: 14.018339}
   m_Center: {x: -164.04276, y: -242.89749, z: 23.376844}
+<<<<<<< Updated upstream
 --- !u!1001 &6180967330213513384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7097,6 +7286,8 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6180967330213513384}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> Stashed changes
 --- !u!1001 &6264495453982868466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7172,7 +7363,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 844099c73c25845958173aae92c8f81e,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 6562829345493921222}
+=======
+      addedObject: {fileID: 3548646477637675747}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 844099c73c25845958173aae92c8f81e, type: 3}
 --- !u!4 &5865177728991339545 stripped
 Transform:
@@ -7186,7 +7381,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6264495453982868466}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &6562829345493921222
+=======
+--- !u!65 &3548646477637675747
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7201,7 +7400,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7292,7 +7495,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 095c3eba109074f17813dfe993b32889,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 7581404703458569419}
+=======
+      addedObject: {fileID: 6035666914180027563}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 095c3eba109074f17813dfe993b32889, type: 3}
 --- !u!1 &5902350907085409928 stripped
 GameObject:
@@ -7300,7 +7507,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6712673729711371225}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &7581404703458569419
+=======
+--- !u!65 &6035666914180027563
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7315,7 +7526,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7402,7 +7617,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a710474cc51e94293991e3c35f601879,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 7001376341608263508}
+=======
+      addedObject: {fileID: 252909502332230746}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: a710474cc51e94293991e3c35f601879, type: 3}
 --- !u!1 &5890140500087073150 stripped
 GameObject:
@@ -7410,7 +7629,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6736419955825824815}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &7001376341608263508
+=======
+--- !u!65 &252909502332230746
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7425,7 +7648,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7507,7 +7734,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2c8189c6222474b12a2dd393d3d3a6f4,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 6762429972546424342}
+=======
+      addedObject: {fileID: 1740499573315341690}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 2c8189c6222474b12a2dd393d3d3a6f4, type: 3}
 --- !u!4 &6996012173198098216 stripped
 Transform:
@@ -7521,7 +7752,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7393905068476111043}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &6762429972546424342
+=======
+--- !u!65 &1740499573315341690
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7536,7 +7771,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7617,7 +7856,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e7242929206e6486286662e3059f2add,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 7807243804771918896}
+=======
+      addedObject: {fileID: 739287954054698531}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: e7242929206e6486286662e3059f2add, type: 3}
 --- !u!4 &6980472919530290492 stripped
 Transform:
@@ -7631,7 +7874,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7445899751115676375}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &7807243804771918896
+=======
+--- !u!65 &739287954054698531
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7646,12 +7893,17 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 18.1887, y: 28.27662, z: 17.299995}
   m_Center: {x: -47.922134, y: -280.73566, z: 21.684635}
+<<<<<<< Updated upstream
 --- !u!1001 &7971314811331786303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7732,6 +7984,8 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7971314811331786303}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> Stashed changes
 --- !u!1001 &8065168528628120271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7807,7 +8061,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d8f3af57d4114500bfca80bf36881d0,
         type: 3}
       insertIndex: -1
+<<<<<<< Updated upstream
       addedObject: {fileID: 6161501203420611929}
+=======
+      addedObject: {fileID: 1895447941633886842}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 1d8f3af57d4114500bfca80bf36881d0, type: 3}
 --- !u!1 &7146181104972908446 stripped
 GameObject:
@@ -7815,7 +8073,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8065168528628120271}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!65 &6161501203420611929
+=======
+--- !u!65 &1895447941633886842
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7830,7 +8092,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

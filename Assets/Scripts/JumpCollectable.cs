@@ -22,6 +22,7 @@ public class JumpCollectible : MonoBehaviour
         {
             // Increment the remaining jumps in the InfiniteCarController script
             carController.remainingJumps++;
+            Debug.Log("Jump Collectible Collected! Remaining Jumps: " + carController.remainingJumps); // Add this line
 
             // Increment the jump count in the GameManager
             gameManager.IncrementJumpCount();
@@ -39,4 +40,5 @@ public class JumpCollectible : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

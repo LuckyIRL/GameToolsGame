@@ -2,17 +2,21 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public enum AIState { Chase, DriveAlongside };
     public float detectionRange = 10f; // Range within which the enemy can detect the player
     public float moveSpeed = 5f; // Speed at which the enemy moves towards the player
+    public float trailingDistance = 3f; // Distance behind the player to trail
     public float maxTurnAngle = 45f; // Maximum angle the enemy can turn in degrees
+    public float boostSpeedMultiplier = 2f; // Speed multiplier when boosting
+    public float boostCooldown = 5f; // Cooldown period between boosts
     public float bumpForce = 10f; // Force applied to the player upon collision
-    public float bumpCooldown = 2f; // Cooldown period between bumps
-    public float driveAlongsideProbability = 0.3f; // Probability of the AI driving alongside the player
+    public float destroyDelay = 10f; // Time before the enemy self-destructs after losing sight of the player
+
     public Transform player; // Reference to the player's transform
 
     private bool playerDetected = false;
-    private bool isOnCooldown = false;
+    private bool isBoosting = false;
+    private bool shouldDestroy = false;
+    private float timeSinceLostPlayer = 0f;
 
     void Update()
     {
@@ -21,73 +25,80 @@ public class EnemyAI : MonoBehaviour
         if (distanceToPlayer <= detectionRange)
         {
             playerDetected = true;
+            timeSinceLostPlayer = 0f; // Reset the timer if player is detected
         }
         else
         {
             playerDetected = false;
+            timeSinceLostPlayer += Time.deltaTime; // Increment the timer if player is not detected
+            if (timeSinceLostPlayer >= destroyDelay)
+            {
+                shouldDestroy = true; // Set flag to destroy enemy after delay
+            }
         }
 
-        // If the player is detected and the AI is not on cooldown, move and turn towards the player
-        if (playerDetected && !isOnCooldown)
+        // If the player is detected, move towards a position behind the player
+        if (playerDetected)
         {
-            AIState currentState = AIState.Chase;
+            // Reset the destroy timer if player is detected
+            timeSinceLostPlayer = 0f;
 
-            // Randomly determine whether to drive alongside the player
-            if (Random.value < driveAlongsideProbability)
+            // Check if not currently boosting and a random chance to enter boost mode
+            if (!isBoosting && Random.value < 0.1f)
             {
-                currentState = AIState.DriveAlongside;
+                StartBoost();
             }
 
-            switch (currentState)
-            {
-                case AIState.Chase:
-                    // Calculate direction to the player
-                    Vector3 chaseDirection = (player.position - transform.position).normalized;
+            // Calculate a position behind the player
+            Vector3 targetPosition = player.position - player.forward * trailingDistance;
 
-                    // Calculate angle to rotate towards the player
-                    float targetChaseAngle = Mathf.Atan2(chaseDirection.x, chaseDirection.z) * Mathf.Rad2Deg;
+            // Calculate direction to the target position
+            Vector3 directionToTarget = (targetPosition - transform.position).normalized;
 
-                    // Calculate the angle between the enemy's forward vector and the direction to the player
-                    float chaseAngleDifference = Mathf.DeltaAngle(transform.eulerAngles.y, targetChaseAngle);
+            // Calculate angle to rotate towards the target position
+            Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
 
-                    // Clamp the angle difference to limit the maximum turn angle
-                    float clampedChaseAngleDifference = Mathf.Clamp(chaseAngleDifference, -maxTurnAngle, maxTurnAngle);
+            // Smoothly rotate towards the target rotation
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxTurnAngle * Time.deltaTime);
 
-                    // Rotate the enemy towards the player's direction
-                    transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y + clampedChaseAngleDifference, 0f);
-
-                    // Move the enemy forward
-                    transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-                    break;
-
-                case AIState.DriveAlongside:
-                    // Calculate direction perpendicular to the player's direction
-                    Vector3 playerDirection = player.position - transform.position;
-                    Vector3 perpendicularDirection = new Vector3(-playerDirection.z, 0, playerDirection.x).normalized;
-
-                    // Calculate angle to rotate to drive alongside the player
-                    float targetAlongsideAngle = Mathf.Atan2(perpendicularDirection.x, perpendicularDirection.z) * Mathf.Rad2Deg;
-
-                    // Calculate the angle between the enemy's forward vector and the direction to drive alongside the player
-                    float alongsideAngleDifference = Mathf.DeltaAngle(transform.eulerAngles.y, targetAlongsideAngle);
-
-                    // Clamp the angle difference to limit the maximum turn angle
-                    float clampedAlongsideAngleDifference = Mathf.Clamp(alongsideAngleDifference, -maxTurnAngle, maxTurnAngle);
-
-                    // Rotate the enemy towards the direction to drive alongside the player
-                    transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y + clampedAlongsideAngleDifference, 0f);
-
-                    // Move the enemy forward
-                    transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-                    break;
-            }
+            // Move at normal or boosted speed depending on the boost state
+            float speed = isBoosting ? moveSpeed * boostSpeedMultiplier : moveSpeed;
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
+        else if (shouldDestroy)
+        {
+            Destroy(gameObject); // Destroy the enemy if it should be destroyed
+        }
+    }
+
+    void StartBoost()
+    {
+        // Set boost state to true
+        isBoosting = true;
+
+        // Set boost duration
+        Invoke("EndBoost", boostCooldown);
+
+        // Reset speed to normal after boost duration
+        Invoke("ResetSpeed", boostCooldown + 2f);
+    }
+
+    void EndBoost()
+    {
+        // Reset boost state after cooldown period
+        isBoosting = false;
+    }
+
+    void ResetSpeed()
+    {
+        // Reset speed to normal after boost duration
+        moveSpeed = 5f;
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        // Check if the collision is with the player and the AI is not on cooldown
-        if (collision.gameObject.CompareTag("Player") && !isOnCooldown)
+        // Check if the collision is with the player and the enemy is currently boosting
+        if (collision.gameObject.CompareTag("Player") && isBoosting)
         {
             // Apply a force to the player to simulate the bump
             Rigidbody playerRigidbody = collision.gameObject.GetComponent<Rigidbody>();
@@ -96,16 +107,6 @@ public class EnemyAI : MonoBehaviour
                 Vector3 bumpDirection = (collision.transform.position - transform.position).normalized;
                 playerRigidbody.AddForce(bumpDirection * bumpForce, ForceMode.Impulse);
             }
-
-            // Start the cooldown period
-            isOnCooldown = true;
-            Invoke("ResetCooldown", bumpCooldown);
         }
-    }
-
-    void ResetCooldown()
-    {
-        // Reset the cooldown flag after the cooldown period
-        isOnCooldown = false;
     }
 }

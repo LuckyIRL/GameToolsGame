@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chunkSize: {x: 200, y: 200}
   levelChunks:
-  - {fileID: 232192245290281211, guid: 7c84f02b3bd623846acee52b8dfb43b5, type: 3}
+  - {fileID: 7633675441520617366, guid: 64f221c770f9e3e448631ea6b6251e33, type: 3}
   entryDirection: 2
   exitDirection: 1
   isEndChunk: 0

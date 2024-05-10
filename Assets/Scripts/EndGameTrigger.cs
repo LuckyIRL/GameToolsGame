@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Cinemachine;
 
 public class EndGameTrigger : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class EndGameTrigger : MonoBehaviour
     public GameObject fireworksPrefab; // Prefab of the fireworks particle system
     public float fireworksDuration = 5f; // Duration of fireworks before transitioning to the end screen
     private InfiniteCarController infiniteCarController;
+    public CinemachineVirtualCamera endCam; // Reference to the EndCam virtual camera
 
     private void Start()
     {
@@ -32,6 +34,8 @@ public class EndGameTrigger : MonoBehaviour
         // Wait for the fireworks duration
         yield return new WaitForSeconds(fireworksDuration);
 
+        // Switch to the EndCam virtual camera
+        endCam.Priority = 20;
 
         gameManager.EndGame(); // Trigger the end game
     }

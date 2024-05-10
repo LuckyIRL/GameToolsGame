@@ -3,7 +3,11 @@ guid: 0cdd7583b8b97d849910cceab9af5d10
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fullHeartSprite: {fileID: 21300000, guid: 2ad4ea3b707563e43801e5106c898b49, type: 3}
+  - emptyHeartSprite: {fileID: 21300000, guid: 6837cd4e8f9be3544a92f962713ee502, type: 3}
+  - musicSlider: {instanceID: 0}
+  - sfxSlider: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

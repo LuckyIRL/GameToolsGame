@@ -52,4 +52,10 @@ public class PlayerHealth : MonoBehaviour
         // Update the UI manager with the current health
         uiManager.UpdateHearts(currentHearts);
     }
+
+    private void LateUpdate()
+    {
+        // UPDATE UI
+        UpdateUI();
+    }
 }

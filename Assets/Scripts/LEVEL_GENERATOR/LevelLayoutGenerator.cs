@@ -135,7 +135,8 @@ public class LevelLayoutGenerator : MonoBehaviour
         spawnOrigin = spawnOrigin + originDelta;
     }
 
-    // Spawn the end chunk
+    // Spawn the end chunk entrance at the exit position of the last chunk spawned
+
     public void SpawnEndChunk()
     {
         // Ensure the end chunk is defined
@@ -145,39 +146,34 @@ public class LevelLayoutGenerator : MonoBehaviour
             return;
         }
 
-        // Get the last spawned chunk's position
-        Vector3 lastSpawnedChunkPosition = spawnPosition;
-
         // Get the exit direction of the last spawned chunk
-        Vector3 exitDirection = previousChunk.ExitDirectionToVector();
+        LevelChunkData.Direction exitDirection = previousChunk.exitDirection;
 
         // Calculate the spawn position of the End Chunk based on the exit direction of the last spawned chunk
-        Vector3 endChunkSpawnPosition = lastSpawnedChunkPosition + exitDirection * previousChunk.chunkSize.x; // Assuming chunkSize.x is the width of the chunk
+        Vector3 endChunkSpawnOffset = Vector3.zero;
 
-        // Calculate the rotation angle to align the entrance of the End Chunk with the exit direction of the last spawned chunk
-        Quaternion rotation = Quaternion.identity;
-        switch (previousChunk.exitDirection)
+        switch (exitDirection)
         {
             case LevelChunkData.Direction.North:
-                rotation = Quaternion.Euler(0f, 0f, 0f);
+                endChunkSpawnOffset = new Vector3(0f, 0f, previousChunk.chunkSize.y);
                 break;
             case LevelChunkData.Direction.East:
-                rotation = Quaternion.Euler(0f, 90f, 0f);
+                endChunkSpawnOffset = new Vector3(previousChunk.chunkSize.x, 0f, 0f);
                 break;
             case LevelChunkData.Direction.South:
-                rotation = Quaternion.Euler(0f, 180f, 0f);
+                endChunkSpawnOffset = new Vector3(0f, 0f, -previousChunk.chunkSize.y);
                 break;
             case LevelChunkData.Direction.West:
-                rotation = Quaternion.Euler(0f, 270f, 0f);
+                endChunkSpawnOffset = new Vector3(-previousChunk.chunkSize.x, 0f, 0f);
                 break;
             default:
                 break;
         }
 
-        // Spawn the end chunk at the calculated position
-        GameObject objectFromChunk = endChunk.levelChunks[Random.Range(0, endChunk.levelChunks.Length)];
-        GameObject endChunkObject = Instantiate(objectFromChunk, endChunkSpawnPosition, Quaternion.identity);
+        Vector3 endChunkSpawnPosition = spawnPosition + endChunkSpawnOffset;
 
-        endChunk = null;
+        // Spawn the end chunk at the calculated position
+        Instantiate(endChunk.levelChunks[0], endChunkSpawnPosition + spawnOrigin, Quaternion.identity);
     }
+
 }

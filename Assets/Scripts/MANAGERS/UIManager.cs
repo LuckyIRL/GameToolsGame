@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+
     public void ToggleMusic()
     {
         // Toggle the music volume based on the music slider value

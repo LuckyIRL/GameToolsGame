@@ -12,6 +12,7 @@ TagManager:
   - EndTokenCount
   - NumberOfJumps
   - Enemy
+  - Hazard
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,6 @@ public class HealthPickup : MonoBehaviour
     GameManager gameManager;
     PlayerHealth playerHealth;
     public GameObject collectEffect;
-    public AudioClip collectSound;
 
     private void Start()
     {
@@ -19,10 +18,10 @@ public class HealthPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.instance.PlaySFX("Health Pickup");
             playerHealth.AddHealth();
             gameManager.currentHealth++;
             Instantiate(collectEffect, transform.position, Quaternion.identity);
-            AudioSource.PlayClipAtPoint(collectSound, transform.position);
             Destroy(gameObject);
         }
     }

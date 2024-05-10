@@ -8,7 +8,6 @@ public class EndToken : MonoBehaviour
     private TextMeshProUGUI endTokenCountText; // Reference to the TextMeshPro UI element
 
     public GameObject collectEffect; // Reference to the collect effect GameObject
-    public AudioClip collectSound; // Reference to the collect sound AudioClip
 
     private GameManager gameManager;
 
@@ -40,7 +39,7 @@ public class EndToken : MonoBehaviour
             Instantiate(collectEffect, transform.position, Quaternion.identity);
 
             // Play the collect sound
-            AudioSource.PlayClipAtPoint(collectSound, transform.position);
+            AudioManager.instance.PlaySFX("EndToken Pickup");
 
             // Destroy the EndToken
             Destroy(gameObject);

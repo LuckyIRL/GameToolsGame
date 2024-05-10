@@ -6,7 +6,7 @@ public class UIManager : MonoBehaviour
     public Image[] heartIcons; // Array to store references to the heart icon images
     public Sprite fullHeartSprite; // Sprite for a full heart
     public Sprite emptyHeartSprite; // Sprite for an empty heart
-    public GameObject gameOverMenu; // Reference to the game over menu
+    public Slider musicSlider, sfxSlider; // Reference to the music and SFX volume sliders
 
 
     // Initialize the UI manager
@@ -35,12 +35,29 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // Show or hide the game over menu based on the specified state
-    public void ToggleGameOverMenu(bool show)
+    public void ToggleMusic()
     {
-        // Set the game over menu active state based on the show parameter
-        gameOverMenu.SetActive(show);
+        // Toggle the music volume based on the music slider value
+        AudioManager.instance.ToggleMusic();
     }
+    public void ToggleSFX()
+    {
+        // Toggle the SFX volume based on the SFX slider value
+        AudioManager.instance.ToggleSFX();
+    }
+
+    public void MusicVolume()
+    {
+        // Update the music volume based on the music slider value
+        AudioManager.instance.MusicVolume(musicSlider.value);
+    }
+
+    public void SFXVolume()
+    {
+        // Update the SFX volume based on the SFX slider value
+        AudioManager.instance.SFXVolume(sfxSlider.value);
+    }
+
 
     // Restart the game when the restart button is clicked
     public void RestartGame()

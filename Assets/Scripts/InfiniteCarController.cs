@@ -54,6 +54,13 @@ public class InfiniteCarController : MonoBehaviour
             transform.Rotate(Vector3.up, horizontalInput * turnSpeed * Time.deltaTime);
         }
 
+        if (transform.position.y < -10)
+        {
+            // If the car falls below the level, end the game
+            FindObjectOfType<GameManager>().RestartGame();
+        }
+
+
     }
 
     private void FixedUpdate()

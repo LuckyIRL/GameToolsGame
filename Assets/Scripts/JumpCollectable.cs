@@ -5,7 +5,6 @@ public class JumpCollectible : MonoBehaviour
 {
     private InfiniteCarController carController; // Reference to the InfiniteCarController script
     public GameObject spawnEffect;
-    public AudioClip jumpCollectable;
     private TextMeshProUGUI jumpCountText; // Reference to the TextMeshPro UI element
     private GameManager gameManager;
 
@@ -34,7 +33,7 @@ public class JumpCollectible : MonoBehaviour
             Instantiate(spawnEffect, transform.position, Quaternion.identity);
 
             // Play the jump collectable sound effect
-            AudioSource.PlayClipAtPoint(jumpCollectable, transform.position);
+            AudioManager.instance.PlaySFX("Jump Pickup");
 
             // Destroy the jump collectible object
             Destroy(gameObject);

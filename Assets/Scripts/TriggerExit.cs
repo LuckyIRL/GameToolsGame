@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TriggerExit : MonoBehaviour
 {
-    public float delay = 5f;
+    public float delay = 20f;
 
     public delegate void ExitAction();
     public static event ExitAction OnChunkExited;
@@ -13,16 +13,11 @@ public class TriggerExit : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        CarTag carTag = other.GetComponent<CarTag>();
-        if (carTag != null)
+        if (other.CompareTag("Player") && !exited)
         {
-            if (!exited)
-            {
-                exited = true;
-                OnChunkExited();
-                StartCoroutine(WaitAndDeactivate());
-            }
-
+            exited = true;
+            OnChunkExited?.Invoke();
+            StartCoroutine(WaitAndDeactivate());
         }
     }
 

@@ -130,12 +130,11 @@ MonoBehaviour:
   detectionRange: 100
   moveSpeed: 15
   trailingDistance: 5
-  maxTurnAngle: 35
-  boostSpeedMultiplier: 1.2
+  maxTurnAngle: 45
+  boostSpeedMultiplier: 1.4
   boostCooldown: 5
   bumpForce: 10
   destroyDelay: 10
-  player: {fileID: 0}
 --- !u!1001 &7105375574626626607
 PrefabInstance:
   m_ObjectHideFlags: 0

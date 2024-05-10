@@ -252,7 +252,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1517471608354212574}
   - component: {fileID: 2505295092028231994}
-  - component: {fileID: 4404339424125043033}
   - component: {fileID: 8916746944194510550}
   m_Layer: 0
   m_Name: SpeedCollectable
@@ -299,27 +298,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6, y: 6, z: 6}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &4404339424125043033
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2853347385743174987}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2073d0935601eae4eb061675b6c4b0bd, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8916746944194510550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,8 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e873e57d76ef1e4f8bafd65f32bf604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostDuration: 10
-  boostMultiplier: 2
+  boostDuration: 5
+  boostMultiplier: 1.2
 --- !u!1 &2977651789600233529
 GameObject:
   m_ObjectHideFlags: 0

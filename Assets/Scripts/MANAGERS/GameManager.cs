@@ -76,8 +76,20 @@ public class GameManager : MonoBehaviour
         // Toggle the pause state
         isPaused = !isPaused;
 
-        // Show or hide the pause menu based on the pause state
-        uiManager.TogglePauseMenu(isPaused);
+        // freeze the game when paused
+        Time.timeScale = isPaused ? 0 : 1;
+
+    }
+
+    // Resume the game
+    public void ResumeGame()
+    {
+        // Set the pause state to false
+        isPaused = false;
+
+        // Unfreeze the game when resumed
+        Time.timeScale = 1;
+
     }
 
     // Start Menu Button

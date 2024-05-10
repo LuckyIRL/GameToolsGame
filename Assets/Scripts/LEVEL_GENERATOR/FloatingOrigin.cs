@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class FloatingOrigin : MonoBehaviour
 {
-    public float threshold = 100.0f;
-    public float transitionSpeed = 5.0f; // Adjust this value to control the speed of the transition
+    public float threshold = 1000.0f;
+    public float transitionSpeed = 1.0f; // Adjust this value to control the speed of the transition
     public LevelLayoutGenerator levelLayoutGenerator;
 
     private Vector3 targetPosition;

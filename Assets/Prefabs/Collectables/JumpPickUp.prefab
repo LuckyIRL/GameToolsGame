@@ -174,4 +174,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnEffect: {fileID: 8350960736181701040, guid: 5400cfab34f3ad045ad5222a0dc649e1,
     type: 3}
-  jumpCollectable: {fileID: 8300000, guid: 314989060202d9848a1d3c8230c96b78, type: 3}
+  jumpCollectable: {fileID: 8300000, guid: 34a7133d6b02ccf409ed1c0bd7296bf2, type: 3}

@@ -9,15 +9,22 @@ public class SpeedBoostCollectable : MonoBehaviour
     // OnTriggerEnter is called when the Collider other enters the trigger. Checks if the player has collided with the speed boost collectable
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        // Check if the collider belongs to the player
+        if (other.CompareTag("Player"))
         {
             // Get the InfiniteCarController component from the player
-            InfiniteCarController carController = other.gameObject.GetComponent<InfiniteCarController>();
+            InfiniteCarController carController = other.GetComponent<InfiniteCarController>();
+
+            // Check if the InfiniteCarController component is not null
             if (carController != null)
             {
-                // Apply the speed boost
-                carController.StartCoroutine(ApplySpeedBoost(carController));
-                // Destroy the speed boost collectable object
+                // Apply the speed boost to the player
+                StartCoroutine(ApplySpeedBoost(carController));
+
+                // Play the speed boost sound effect
+                AudioManager.instance.PlaySFX("SpeedBoost Pickup");
+
+                // Destroy the speed boost collectable
                 Destroy(gameObject);
             }
         }
